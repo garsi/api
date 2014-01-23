@@ -1,0 +1,86 @@
+/* ==========================================================================
+   KAT'S MEOW
+   ========================================================================== */
+
+
+
+/* ===== global styles ===== */
+body {
+	padding-left: 10px;
+}
+
+h1 {
+	margin: 25px 0 5px 0;
+}
+
+h6 {
+	margin: 0;
+}
+
+
+/* ===== semantic elements: ===== */
+/* ===== body | header | nav ===== */
+
+
+
+/* ===== semantic elements: ===== */
+/* ===== sections | articles ===== */
+article {
+	width: 245px;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+
+/* ===== more selectors & animations ===== */
+.hide {
+	display: none;
+}
+
+.error {
+	font-size: 1em;
+	color: orange;
+}
+
+
+
+/* ================================= */
+/* ===== IPAD & TABLET SCREENS ===== */
+/* ================================= */
+
+
+/* ===== global styles ===== */
+
+
+/* ===== semantic elements: ===== */
+/* ===== body | header | nav ===== */
+
+
+
+/* ===== semantic elements: ===== */
+/* ===== sections | articles ===== */
+
+
+/* ===== more selectors & animations ===== */
+
+
+
+
+/* ================================= */
+/* ===== DESKTOP SCREENS ===== */
+/* ================================= */
+
+
+/* ===== global styles ===== */
+
+
+/* ===== semantic elements: ===== */
+/* ===== body | header | nav ===== */
+
+
+
+/* ===== semantic elements: ===== */
+/* ===== sections | articles ===== */
+
+
+/* ===== more selectors & animations ===== */

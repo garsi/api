@@ -3,24 +3,110 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>TITLE</title>
+   <title>Neighbors Choose</title>
    <meta name="author" content="Kat Garsi">
-   <meta name="description" content="">
+   <meta name="description" content="Find and fund projects in local schools from DonorsChoose.org.">
 <!--ico, social meta-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="shortcut icon" href=".ico"/>
-   <meta property="og:title" content=""/>
+   <meta property="og:title" content="Neighbors Choose"/>
    <meta property="og:image" content=""/>
    <meta property="og:url" content=""/>
+<!--styles-->
    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css" rel="stylesheet">
-   <link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
 <body>
-
-
-
-
+   <header>
+      <h1>Neighbors Choose</h1>
+      <h2>Find and fund projects in local schools</h2>
+   </header>
+   <main>
+      <section>
+         <h1>Search for a project</h1>
+         <p class="hide error">Please enter a state to find a project and a city to get more local results.</p>
+      </section>
+      <section>
+         <form id="searchForm" method="post" action="">
+            <input type="text" name="city" id="formCity" placeholder="city" autofocus>
+            <select name="state" id="formState">
+               <option value="AL">Alabama</option>
+               <option value="AK">Alaska</option>
+               <option value="AZ">Arizona</option>
+               <option value="AR">Arkansas</option>
+               <option value="CA">California</option>
+               <option value="CO">Colorado</option>
+               <option value="CT">Connecticut</option>
+               <option value="DE">Delaware</option>
+               <option value="DC">District of Columbia</option>
+               <option value="FL">Florida</option>
+               <option value="GA">Georgia</option>
+               <option value="HI">Hawaii</option>
+               <option value="ID">Idaho</option>
+               <option value="IL">Illinois</option>
+               <option value="IN">Indiana</option>
+               <option value="IA">Iowa</option>
+               <option value="KS">Kansas</option>
+               <option value="KY">Kentucky</option>
+               <option value="LA">Louisiana</option>
+               <option value="ME">Maine</option>
+               <option value="MD">Maryland</option>
+               <option value="MA">Massachusetts</option>
+               <option value="MI">Michigan</option>
+               <option value="MN">Minnesota</option>
+               <option value="MS">Mississippi</option>
+               <option value="MO">Missouri</option>
+               <option value="MT">Montana</option>
+               <option value="NE">Nebraska</option>
+               <option value="NV">Nevada</option>
+               <option value="NH">New Hampshire</option>
+               <option value="NJ">New Jersey</option>
+               <option value="NM">New Mexico</option>
+               <option value="NY">New York</option>
+               <option value="NC">North Carolina</option>
+               <option value="ND">North Dakota</option>
+               <option value="OH">Ohio</option>
+               <option value="OK">Oklahoma</option>
+               <option value="OR">Oregon</option>
+               <option value="PA">Pennsylvania</option>
+               <option value="RI">Rhode Island</option>
+               <option value="SC">South Carolina</option>
+               <option value="SD">South Dakota</option>
+               <option value="TN">Tennessee</option>
+               <option value="TX">Texas</option>
+               <option value="UT">Utah</option>
+               <option value="VT">Vermont</option>
+               <option value="VA">Virginia</option>
+               <option value="WA">Washington</option>
+               <option value="WV">West Virginia</option>
+               <option value="WI">Wisconsin</option>
+               <option value="WY">Wyoming</option>
+            </select>
+            <input type="submit" id="submitButton" name="submitButton" value="find projects">
+         </form>
+      </section>
+      <section class="hide" id="results">
+         <div>
+         </div>
+         <h2>Projects in <span id="returnCity"></span> <span id="returnState"></span>:</h2>
+         <h3 class="hide error">No results in this area. Please try another city or state.</h3>
+         <h6><em>*Clicking give button will take you to DonorsChoose.org website.</em></h6>
+         <article>
+            <h1 id="title"></h1>
+            <p id="schoolName"></p>
+            <p id="picture"></p>
+            <p id="desc"></p>
+            <p id="cost"></p>
+            <p id="donors"></p>
+            <p id="link"></p>
+         </article>
+      </section>
+   </main>
+   <footer>
+      <p><em>All data from DonorsChoose.org. Neighbors Choose is hand-coded and designed by Kat for a school project and has no affiliation with DonorsChoose.org.<br>Copyright &copy; 2013 Katherine Garsi. Seattle, WA. All rights reserved.</em></p>
+   </footer>
+<!--scripts-->   
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script type="text/javascript" src="FILENAME.js"></script>
+   <script type="text/javascript" src="api.js"></script>
 </body>
 </html>
