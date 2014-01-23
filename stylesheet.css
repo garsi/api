@@ -49,12 +49,23 @@ main section:first-child h1 {
 	text-align: center;
 }
 
+.ribbon {
+	font-size: 36px;
+	width: 200px;
+	margin: 1em auto .75em;
+	padding: .5em .5em;
+	background: #5353A4;
+	color: #fff;
+	text-align: center;
+}
+
 section {
 	width: 320px;
 	margin: auto;
 }
 
 section h2 {
+	margin-top: 2em;
 	text-align: center;
 	color: #5353A4;
 }
@@ -81,6 +92,7 @@ footer {
 	clear: both;
 	width: 100%;
 	height: 115px;
+	margin-top: 45px;
 	padding-top: 345px;
 	background-image: url('images/bg_neighborhood.png');
 	background-repeat: repeat-x;
@@ -90,8 +102,16 @@ footer {
 	font-size: .75em;
 }
 
+footer a, footer a:visited {
+	color: #FFFFFF;
+}
 
-/* ===== more selectors & animations ===== */
+
+/* ===== more selectors ===== */
+
+.fa-star {
+	font-size: .75em;
+}
 
 form {
   text-align: center;
@@ -129,10 +149,64 @@ img {
 }
 
 .error {
+	text-align: center;
 	font-size: 1em;
-	color: orange;
+	color: #D0696D;
 }
 
+
+/* ================================= */
+/* ========== RIBBON FOR =========== */
+/* ===== MOBILE LANDSCAPE & UP ===== */
+/* ================================= */
+
+@media screen and (min-width:480px) {
+
+.ribbon {
+	position: relative;
+}
+
+.ribbon:before, .ribbon:after {
+	content: "";
+	position: absolute;
+	display: block;
+	bottom: -.25em;
+	border: 1.8em solid #424282;
+	z-index: -1;
+}
+
+.ribbon:before {
+	left: -2.75em;
+ 	border-right-width: 1.5em;
+	border-left-color: transparent;
+}
+
+.ribbon:after {
+	right: -2.75em;
+	border-left-width: 1.5em;
+	border-right-color: transparent;
+}
+
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+	content: "";
+	position: absolute;
+	display: block;
+	border-style: solid;
+	border-color: #2D2D59 transparent transparent transparent;
+	bottom: -.25em;
+}
+
+.ribbon .ribbon-content:before {
+	left: 0;
+	border-width: .25em 0 0 .5em;
+}
+
+.ribbon .ribbon-content:after {
+	right: 0;
+	border-width: .25em .5em 0 0;
+}
+
+}
 
 
 /* ================================= */
@@ -161,6 +235,25 @@ article {
 	margin-left: 5%;
 	margin-right: 5%;
 }
+
+.ribbon {
+	font-size: 40px;
+	width: 400px;
+	padding: .3em 1.25em;
+}
+
+.ribbon:before, .ribbon:after {
+	border-width: 1em;
+}
+
+.ribbon:before {
+	left: -1.5em;
+}
+
+.ribbon:after {
+	right: -1.5em;
+}
+
 
 }
 
