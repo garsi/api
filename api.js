@@ -45,7 +45,7 @@ $(document).ready(function(){
           if(data.proposals && data.proposals.length > 0) {
             console.log("we have results!");
             $('#results h3').addClass('hide');
-            displayResults(data);
+            displayResults(data, donorCity, donorState);
           } else {
             console.log("sorry, no results");
             $('main section:first-child p').removeClass('hide').html('No results in this area. Please try another city or state.');
@@ -56,10 +56,28 @@ $(document).ready(function(){
 
 
 //Push data to display results
-  function displayResults(data) {
+  function displayResults(data, donorCity, donorState) {
     console.log(data);
-    $('#results').removeClass('hide');
-    $.each(data.proposals, function() {
+    //$('#results').removeClass('hide');
+    var projectInfo = '<h2>Projects in ' + donorCity + ', ' + donorState + '</h2><h6><em>*Clicking the select project button will take you to DonorsChoose.org website.</em></h6>';
+    $.each(data.proposals, function(i, info) {
+      projectInfo += 
+      '<article><h1>' + info.title + '</h1><p class="listschool">' 
+          + info.schoolName + '</p><p><img src="' 
+          + info.imageURL + '" alt="school picture"></p><p>' 
+          //+ info.shortDescription + '</p><p>' 
+          + info.fulfillmentTrailer + '</p><p><strong>Just $' 
+          + info.costToComplete + ' </strong> to real goal!</p><p><strong>Join ' 
+          + info.numDonors + '</strong> other donors.</p><p><form action="' 
+          + info.proposalURL + '" target="_blank"><input type="submit" value="Select Project"></form></article>';
+    });
+
+    $('#searchResults').html(projectInfo);
+
+  }
+
+
+    /*$.each(data.proposals, function() {
       $('#title').html(data.proposals[0].title);
       $('#schoolName').html(data.proposals[0].schoolName);
       $('#picture').html('<img src="' + data.proposals[0].imageURL + '" alt="school picture">')
@@ -68,7 +86,7 @@ $(document).ready(function(){
       $('#donors').html('Join ' + data.proposals[0].numDonors + ' other donors!');
       $('#link').html('<form action="' + data.proposals[0].proposalURL + '" target="_blank"><input type="submit" value="Select Project"></form>');
     });
-  }
+  }*/
 
 
 });

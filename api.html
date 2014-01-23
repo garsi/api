@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Neighbors Choose</title>
    <meta name="author" content="Kat Garsi">
-   <meta name="description" content="Find and fund projects in local schools from DonorsChoose.org.">
+   <meta name="description" content="Find and fund projects for your local schools from DonorsChoose.org.">
 <!--ico, social meta-->
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="shortcut icon" href=".ico"/>
@@ -14,22 +14,24 @@
    <meta property="og:url" content=""/>
 <!--styles-->
    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css" rel="stylesheet">
+   <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
 <body>
    <header>
-      <h1>Neighbors Choose</h1>
-      <h2>Find and fund projects in local schools</h2>
+      <h1>School Spirit</h1>
+      <h2>Find and fund projects for your local schools</h2>
    </header>
    <main>
       <section>
-         <h1>Search for a project</h1>
+         <h2>Search for a project</h2>
          <p class="hide error"></p>
       </section>
       <section>
          <form id="searchForm" method="post" action="">
             <input type="text" name="city" id="formCity" placeholder="city" autofocus>
             <select name="state" id="formState">
+               <option value="">--select state--</option>
                <option value="AL">Alabama</option>
                <option value="AK">Alaska</option>
                <option value="AZ">Arizona</option>
@@ -85,22 +87,23 @@
             <input type="submit" id="submitButton" name="submitButton" value="find projects">
          </form>
       </section>
-      <section class="hide" id="results">
-         <h2>Projects in <span id="returnCity"></span> <span id="returnState"></span>:</h2>
-         <h6><em>*Clicking give button will take you to DonorsChoose.org website.</em></h6>
-         <article>
+      <section id="searchResults">
+      </section>
+      <!--<section class="hide" id="results">
+         <h2>Projects in <span id="returnCity"></span>, <span id="returnState"></span>:</h2>
+         <h6><em>*Selecting project will take you to DonorsChoose.org website.</em></h6>
+         <article id="test">
             <h1 id="title"></h1>
             <p id="schoolName"></p>
             <p id="picture"></p>
             <p id="desc"></p>
-            <p id="cost"></p>
-            <p id="donors"></p>
-            <p id="link"></p>
          </article>
-      </section>
+      </section>-->
    </main>
    <footer>
-      <p><em>All data from DonorsChoose.org. Neighbors Choose is hand-coded and designed by Kat for a school project and has no affiliation with DonorsChoose.org.<br>Copyright &copy; 2013 Katherine Garsi. Seattle, WA. All rights reserved.</em></p>
+      <p><em>All data from DonorsChoose.org.</p>
+      <p>Neighbors Choose is hand-coded and designed by Kat for a school project and has no affiliation with DonorsChoose.org.</p>
+      <p>Copyright &copy; 2013 Katherine Garsi. Seattle, WA. All rights reserved.</em></p>
    </footer>
 <!--scripts-->   
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
