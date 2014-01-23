@@ -16,9 +16,9 @@ $(document).ready(function(){
 
 //Validate user has entered a state
   function validateSearch (donorCity, donorState) {
-    if(donorState == "") {
+    if(donorState == "" || donorCity == "") {
       console.log("no city or state");
-      $('main section:first-child p').removeClass('hide');
+      $('main section:first-child p').removeClass('hide').html('Please enter a city and state to find a project.');
     } else {
       console.log("city or state validated");
       $('main section:first-child p').addClass('hide');
@@ -34,12 +34,12 @@ $(document).ready(function(){
 
     var apiKey = 'DONORSCHOOSE'
 
-    var requestURL = 'http://api.donorschoose.org/common/json_feed.html?state?&callback=?';
+    var requestURL = 'http://api.donorschoose.org/common/json_feed.html?keywords?state?&callback=?';
 
     $.getJSON(requestURL, {
       'apikey': apiKey,
       'state': donorState,
-      //'city': donorCity,
+      'keywords': donorCity,
     },
       function(data){
           if(data.proposals && data.proposals.length > 0) {
@@ -48,7 +48,7 @@ $(document).ready(function(){
             displayResults(data);
           } else {
             console.log("sorry, no results");
-            $('#results h3').removeClass('hide');
+            $('main section:first-child p').removeClass('hide').html('No results in this area. Please try another city or state.');
           }
       }
 
