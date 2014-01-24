@@ -17,7 +17,7 @@ h2 {
 }
 
 h6 {
-	margin: 5px 0 15px 0;
+	margin: 5px 0 40px 0;
 	text-align: center;
 }
 
@@ -45,10 +45,6 @@ header h1 {
 /* ===== semantic elements: ===== */
 /* ===== sections | articles ===== */
 
-main section:first-child h1 {
-	text-align: center;
-}
-
 .ribbon {
 	font-size: 36px;
 	width: 200px;
@@ -59,9 +55,17 @@ main section:first-child h1 {
 	text-align: center;
 }
 
+main section:first-child h1 {
+	text-align: center;
+}
+
 section {
-	width: 320px;
+	width: 360px;
 	margin: auto;
+}
+
+main section:first-child {
+	width: 300px;
 }
 
 section h2 {
@@ -71,15 +75,17 @@ section h2 {
 }
 
 article {
-	width: 245px;
+	width: 85%;
 	height: 650px;
 	margin: 0 auto 20px auto;
-	padding: 0 10px 30px 10px;
-	border: 1px solid #5353A4;
+	padding: 5px 15px 30px 15px;
 	background-color: #FFFBF6;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
 }
 
 article h1 {
+	margin-top: 1em;
+	font-size: 1.5em;
 	line-height: 1em;
 }
 
@@ -91,7 +97,7 @@ article h1 {
 footer {
 	clear: both;
 	width: 100%;
-	height: 115px;
+	height: 130px;
 	margin-top: 45px;
 	padding-top: 345px;
 	background-image: url('images/bg_neighborhood.png');
@@ -118,7 +124,8 @@ form {
 }
 
 input[type=text] {
-	margin: 10px;
+	display:block;
+	margin: 15px auto;
 }
 
 input[type=text]:focus, select:focus {
@@ -126,8 +133,9 @@ input[type=text]:focus, select:focus {
 }
 
 input[type=submit], input[type=button] {
+	display:block;
 	text-transform: uppercase;
-	margin: 10px;
+	margin: 15px auto;
 	padding: 8px;
 	background-color: #E79677;
 	border-top: 2px solid #E79677;
@@ -229,15 +237,27 @@ section {
 	width: 450px;
 }
 
+section h2 {
+	margin-top: 1em;
+}
+
+input[type=text] {
+	display: inline;
+}
+
+input[type=submit], input[type=button] {
+	display: inline;
+}
+
 #searchResults {
 	width: 760px;
 }
 
 article {
 	float: left;
-	width: 35%;
-	margin-left: 5%;
-	margin-right: 5%;
+	width: 40%;
+	margin-left: 3%;
+	margin-right: 3%;
 }
 
 .ribbon {
@@ -271,14 +291,14 @@ article {
 /* ===== semantic elements: ===== */
 /* ===== body | header | nav ===== */
 #searchResults {
-	width: 1000px;
+	width: 1024px;
 }
 
 article {
 	float: left;
-	width: 25%;
-	margin-left: 3%;
-	margin-right: 3%;
+	width: 27%;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
 }
 
 }
