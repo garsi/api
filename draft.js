@@ -38,23 +38,19 @@ $(document).ready(function(){
 
     var apiKey = 'DONORSCHOOSE'
 
-    var max = 12
-
     var requestURL = 'http://api.donorschoose.org/common/json_feed.html?keywords?state?&callback=?';
 
     $.getJSON(requestURL, {
       'apikey': apiKey,
       'state': donorState,
       'keywords': donorCity,
-      'index': index,
-      'max': max,
+      'index': index
     },
 
       function(data){
           if(data.proposals && data.proposals.length > 0) {
             console.log("we have results!");
             $('#results h3').addClass('hide');
-            index += 12;
             displayResults(data, donorCity, donorState);
 
           } else {
@@ -70,39 +66,23 @@ $(document).ready(function(){
   function displayResults(data, donorCity, donorState) {
     console.log(data);
     var projectInfo = '<h2>Projects in ' + donorCity + ', ' + donorState + '</h2><h6><em>*Clicking the select project button will take you to DonorsChoose.org website.</em></h6>';
-        $.each(data.proposals, function(i, info) {
-          projectInfo += 
-          '<article><h1>' + info.title + '</h1><p class="listschool">' 
-              + info.schoolName + '</p><p><img src="' 
-              + info.imageURL + '" alt="school picture"></p><p>' 
-              + info.fulfillmentTrailer + '</p><p><strong>Just $' 
-              + info.costToComplete + ' </strong> to real goal!</p><p><strong>Join ' 
-              + info.numDonors + '</strong> other donors.</p><p><form action="' 
-              + info.proposalURL + '" target="_blank"><input type="submit" value="Select Project"></form></article>';
-        });
+    $.each(data.proposals, function(i, info) {
+      projectInfo += 
+      '<article><h1>' + info.title + '</h1><p class="listschool">' 
+          + info.schoolName + '</p><p><img src="' 
+          + info.imageURL + '" alt="school picture"></p><p>' 
+          + info.fulfillmentTrailer + '</p><p><strong>Just $' 
+          + info.costToComplete + ' </strong> to real goal!</p><p><strong>Join ' 
+          + info.numDonors + '</strong> other donors.</p><p><form action="' 
+          + info.proposalURL + '" target="_blank"><input type="submit" value="Select Project"></form></article>';
+    });
 
     $('#searchResults').html(projectInfo);
     $('#moreResults').removeClass('hide');
-    $('#moreResults p').html('NOTE: The more results function is still in progress!<br>Displaying' + index + ' out of ' + data.totalProposals + ' projects');
-
-    getMore(data, donorCity, donorState);
 
   }
-
 
 //Add more results when button is clicked
-  function getMore(data, donorCity, donorState) {
-    $('#more, #prev').click(function() {
-      if($(this).attr('id') === 'prev') {
-        index -= 24;
-      }
-      donorSearch(donorCity, donorState);
-      requestData(donorCity, donorState);
-      $('body').animate({scrollTop:200}, 'slow');
-        return false;
-    });
-  }
-
 
 
 });

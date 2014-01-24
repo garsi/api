@@ -60,7 +60,7 @@ main section:first-child h1 {
 }
 
 section {
-	width: 360px;
+	width: 300px;
 	margin: auto;
 }
 
@@ -75,7 +75,7 @@ section h2 {
 }
 
 article {
-	width: 85%;
+	width: 80%;
 	height: 650px;
 	margin: 0 auto 20px auto;
 	padding: 5px 15px 30px 15px;
@@ -89,6 +89,16 @@ article h1 {
 	line-height: 1em;
 }
 
+#moreResults article {
+	height: 150px;
+}
+
+#moreResults p {
+	font-style: italic;
+	text-align: center;
+	color: #D0696D;
+}
+
 .listschool {
 	font-size: .8em;
 	margin-top: .5em;
@@ -97,7 +107,7 @@ article h1 {
 footer {
 	clear: both;
 	width: 100%;
-	height: 130px;
+	height: 140px;
 	margin-top: 45px;
 	padding-top: 345px;
 	background-image: url('images/bg_neighborhood.png');
@@ -124,7 +134,7 @@ form {
 }
 
 input[type=text] {
-	display:block;
+	display: block;
 	margin: 15px auto;
 }
 
@@ -132,8 +142,8 @@ input[type=text]:focus, select:focus {
 	border: 1px solid #CA8A6E;
 }
 
-input[type=submit], input[type=button] {
-	display:block;
+input[type=submit] {
+	display: block;
 	text-transform: uppercase;
 	margin: 15px auto;
 	padding: 8px;
@@ -145,7 +155,7 @@ input[type=submit], input[type=button] {
 	color: #FFFFFF;
 }
 
-input[type=submit]:hover, input[type=button]:hover, input[type=submit]:active, input[type=button]:active {
+input[type=submit]:hover, input[type=submit]:active {
 	background-color: #F0A47B;
 	border: 2px solid #F0A47B;
 }
@@ -245,12 +255,13 @@ input[type=text] {
 	display: inline;
 }
 
-input[type=submit], input[type=button] {
+input[type=submit] {
 	display: inline;
 }
 
-#searchResults {
-	width: 760px;
+#searchResults, #moreResults {
+	width: 750px;
+	margin: auto;
 }
 
 article {
@@ -258,6 +269,16 @@ article {
 	width: 40%;
 	margin-left: 3%;
 	margin-right: 3%;
+}
+
+#moreResults article {
+	clear: both;
+	width: 80%;
+	height: 100px;
+	margin-top: 25px;
+	margin-left: 8%;
+	margin-right: 8%;
+	text-align: center;
 }
 
 .ribbon {
