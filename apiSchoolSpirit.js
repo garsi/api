@@ -5,7 +5,7 @@ $(document).ready(function(){
   var index = 0;
 
 
-//Save donor's search entry 
+//Save donor's search entry
   function donorSearch () {
     $('#searchForm').submit(function(e){
       e.preventDefault();
@@ -36,32 +36,32 @@ $(document).ready(function(){
 //Requesting data - do I have any?
   function requestData(donorCity, donorState) {
 
-    var apiKey = 'DONORSCHOOSE'
+	var apiKey = 'DONORSCHOOSE'
 
-    var max = 12
+	var max = 12
 
-    var requestURL = 'http://api.donorschoose.org/common/json_feed.html?keywords?state?&callback=?';
+	var requestURL = 'http://api.donorschoose.org/common/json_feed.html?keywords?state?&callback=?';
 
-    $.getJSON(requestURL, {
-      'apikey': apiKey,
-      'state': donorState,
-      'keywords': donorCity,
-      'index': index,
-      'max': max,
-    },
+	$.getJSON(requestURL, {
+	  'apikey': apiKey,
+	  'state': donorState,
+	  'keywords': donorCity,
+	  'index': index,
+	  'max': max,
+	},
 
-      function(data){
-          if(data.proposals && data.proposals.length > 0) {
-            console.log("we have results!");
-            $('#results h3').addClass('hide');
-            index += 12;
-            displayResults(data, donorCity, donorState);
-
-          } else {
-            console.log("sorry, no results");
-            $('main section:first-child p').removeClass('hide').html('No results in this area. Please try another city or state.');
-          }
-      }
+	  function(data){
+	      if(data.proposals && data.totalProposals > 0) {
+	        console.log("we have results!");
+	        $('#results h3').addClass('hide');
+	        //index += 12;
+	        buttonState(data);
+	        displayResults(data, donorCity, donorState);
+	      } else {
+	        console.log("sorry, no results");
+	        $('main section:first-child p').removeClass('hide').html('No results in this area. Please try another city or state.');
+	      }
+	  }
 
   )};
 
@@ -83,26 +83,62 @@ $(document).ready(function(){
 
     $('#searchResults').html(projectInfo);
     $('#moreResults').removeClass('hide');
-    $('#moreResults p').html('NOTE: The more results function is still in progress!<br>Displaying' + index + ' out of ' + data.totalProposals + ' projects');
+    
+    if ((index+12) < data.totalProposals) {
+    	$('#moreResults p').html('Displaying ' + (index+12) + ' out of ' + data.totalProposals + ' projects');
+    } else {
+    	$('#moreResults p').html('Displaying ' + data.totalProposals + ' out of ' + data.totalProposals + ' projects');
+    }
 
     getMore(data, donorCity, donorState);
+    //previous(data, donorCity, donorState);
 
   }
+
+
+//Allow "more" and "previous" buttons to be clicked when only if additional data is available
+	function buttonState(data){
+		if ((index+12) > data.totalProposals) {
+			$('#more').attr('disabled', true);
+		} else {
+			$('#more').attr('disabled', false);
+		}
+
+		if (index <=12) {
+			$('#prev').attr('disabled', true);
+		} else {
+			$('#prev').attr('disabled', false);
+		}
+	}
 
 
 //Add more results when button is clicked
   function getMore(data, donorCity, donorState) {
-    $('#more, #prev').click(function() {
-      if($(this).attr('id') === 'prev') {
-        index -= 24;
-      }
-      donorSearch(donorCity, donorState);
-      requestData(donorCity, donorState);
-      $('body').animate({scrollTop:200}, 'slow');
-        return false;
+    $('#more').click(function(e) {
+    	e.preventDefault();
+    	index += 12;
+		donorSearch(donorCity, donorState);
+		requestData(donorCity, donorState);
+		$('body').animate({scrollTop:200}, 'slow');
+		return false;
     });
   }
 
 
+ /*
+ //Get previous results when button is clicked
+  function previous(data, donorCity, donorState) {
+    $('#prev').click(function(e) {
+		e.preventDefault();
+		index -= 12;
+		donorSearch(donorCity, donorState);
+		requestData(donorCity, donorState);
+		$('body').animate({scrollTop:200}, 'slow');
+		return false;
+    });
+  }
+*/
+
 
 });
+

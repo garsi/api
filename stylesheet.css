@@ -160,6 +160,10 @@ input[type=submit]:hover, input[type=submit]:active {
 	border: 2px solid #F0A47B;
 }
 
+input[type="submit"]:disabled {
+	background-color: #bdc3c7;
+}
+
 img {
 	display: block;
 	width: 212px;
